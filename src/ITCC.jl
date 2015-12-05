@@ -6,18 +6,18 @@ include("utils.jl")
 export itcc, ITCC_Result
 
 type ITCC_Result<:Any
-    cX::Array{UInt,2}
-    cY::Array{UInt,2}
+    cX::Array{Int,2}
+    cY::Array{Int,2}
     q::Matrix{Float64}
     p_clust::Matrix{Float64}
     kl::Float64
     converged::Bool
-    num_iters::UInt
+    num_iters::Int
 end
 
 
 # itcc with option to specify vectors of initial partions
-function itcc(p::Array{Float64,2}, k::UInt, l::UInt, n_iters::UInt, convergeThresh::Float64, cX::Array{UInt,2}, cY::Array{UInt,2}) 
+function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64, cX::Array{Int,2}, cY::Array{Int,2}) 
     m = size(p,1)
     n = size(p,2)
     
@@ -50,7 +50,7 @@ function itcc(p::Array{Float64,2}, k::UInt, l::UInt, n_iters::UInt, convergeThre
 end
 
 # If no cX, cY are specified, default to random assignments
-function itcc(p::Array{Float64,2}, k::UInt, l::UInt, n_iters::UInt, convergeThresh::Float64)
+function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64)
     cX = rand(1:k, size(p,1))  
     cY = rand(1:l, size(p,2))
     itcc(p, k, l, n_iters, convergeThresh, cX, cY)
