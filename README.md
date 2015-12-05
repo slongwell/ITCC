@@ -30,6 +30,7 @@ Uses the Kullback-Leibler Divergence (KL-D) implemented in the `Distances` packa
 
 ##Output  
 An instance of the `ITCC_Result` type, which has the following attributes:  
+
 `cX`: Final row-cluster assignments  
 `cY`: Final column-cluster assignmnents  
 `q`: Final q  
