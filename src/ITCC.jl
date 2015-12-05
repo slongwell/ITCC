@@ -6,13 +6,13 @@ include("utils.jl")
 export itcc, ITCC_Result
 
 type ITCC_Result<:Any
-    cX::Array{Int32,2}
-    cY::Array{Int32,2}
+    cX::Array{UInt,2}
+    cY::Array{UInt,2}
     q::Matrix{Float64}
     p_clust::Matrix{Float64}
     kl::Float64
     converged::Bool
-    num_iters::Int
+    num_iters::UInt
 end
 
 
