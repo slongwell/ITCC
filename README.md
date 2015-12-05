@@ -1,5 +1,5 @@
 #ITCC: Information Theoretic Co-Clustering  
-2015-12-04
+2015-12-04  
 [Scott Longwell](https://github.com/slongwell)
 [Alex Williams](https://github.com/ahwillia)
 
