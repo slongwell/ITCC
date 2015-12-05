@@ -35,7 +35,7 @@ prob_X_given_yhat(P, yhat,cY) = sum(P[:,cY.==yhat] / sum(P[:,cY.==yhat]), 2)
 
 
 
-function next_cx(p,q, x::UInt,cX::Array, k)
+function next_cx(p,q, x::Int,cX::Array, k)
     q_dist_xhat = Array(Float64, k)
     p_dist_x = prob_Y_given_x(p,x)
 
@@ -46,7 +46,7 @@ function next_cx(p,q, x::UInt,cX::Array, k)
 end
 
 function next_cX(p,q, cX::Array, k)
-    output = Array(UInt, size(cX))
+    output = Array(Int, size(cX))
     for x in 1:size(cX,2)
         output[x] = next_cx(p,q, x,cX, k)
     end
@@ -54,7 +54,7 @@ function next_cX(p,q, cX::Array, k)
 end
 
 
-function next_cy(p,q, y::UInt,cY::Array{UInt,2}, l)
+function next_cy(p,q, y::Int,cY::Array{Int,2}, l)
     q_dist_yhat = Array(Float64,l)
     p_dist_y = prob_X_given_y(p,y)
     for yhat in 1:l
@@ -63,8 +63,8 @@ function next_cy(p,q, y::UInt,cY::Array{UInt,2}, l)
     return indmin(q_dist_yhat)
 end
 
-function next_cY(p,q, cY::Array{UInt,2}, l)
-    output = Array(UInt, size(cY))
+function next_cY(p,q, cY::Array{Int,2}, l)
+    output = Array(Int, size(cY))
     for y in 1:size(cY,2)
         output[y] = next_cy(p,q, y, cY, l)
     end
