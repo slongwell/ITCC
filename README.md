@@ -40,7 +40,7 @@ An instance of the `ITCC_Result` type, which has the following attributes:
 
 
 
-###TODO
-1) Sparse matrix to handle larger inputs
-2) N-dimensionalize
-3) Jitter to break ties
+##TODO
+1) Sparse matrix to handle larger inputs  
+2) N-dimensionalize  
+3) Jitter to break ties  
