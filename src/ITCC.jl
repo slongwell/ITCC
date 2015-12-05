@@ -17,7 +17,7 @@ end
 
 
 # itcc with option to specify vectors of initial partions
-function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64, cX::Array{Int32,2}, cY::Array{Int32,2}) 
+function itcc(p::Array{Float64,2}, k::UInt32, l::UInt32, n_iters::UInt32, convergeThresh::Float64, cX::Array{UInt32,2}, cY::Array{UInt32,2}) 
     m = size(p,1)
     n = size(p,2)
     
@@ -50,7 +50,7 @@ function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh:
 end
 
 # If no cX, cY are specified, default to random assignments
-function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64)
+function itcc(p::Array{Float64,2}, k::UInt32, l::UInt32, n_iters::UInt32, convergeThresh::Float64)
     cX = rand(1:k, size(p,1))  
     cY = rand(1:l, size(p,2))
     itcc(p, k, l, n_iters, convergeThresh, cX, cY)
