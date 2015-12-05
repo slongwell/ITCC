@@ -9,7 +9,7 @@ Coclustering, Proc. Ninth ACM SIGKDD Int'l Conf. Knowledge
 Discovery and Data Mining (KDD '03), 2003.  
 [Paper](http://www.cs.utexas.edu/users/inderjit/public_papers/kdd_cocluster.pdf)  
 
-For an example application, see Percha & Altman:  
+For an example application and Python implementation, see Percha & Altman:  
 B. Percha, R.B. Altman, "Learning the Structure of Biomedical Relationships from Unstructured Text," PLoS Comp. Bio., 2015.  
 [Paper](http://www.ncbi.nlm.nih.gov/pubmed/26219079)  
 [Github](https://github.com/blpercha/ebc)
