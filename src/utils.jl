@@ -77,3 +77,4 @@ function printState()
     println(round( q, 3))
     println(prob_clust(p, 1:k,cX, 1:l,cY))
 end
+

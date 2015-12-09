@@ -3,7 +3,7 @@ module ITCC
 using Distances
 include("utils.jl")
 
-export itcc, ITCC_Result
+export itcc, ITCC_Result, readtsv
 
 type ITCC_Result<:Any
     cX::Array{Int,2}
@@ -55,6 +55,20 @@ function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh:
     cY = rand(1:l, size(p,2))
     itcc(p, k, l, n_iters, convergeThresh, cX, cY)
 end
+
+
+function readtsv(filepath)
+    data = readdlm(filepath, '\t')
+    n = maximum(data[:,2])+1
+    m = maximum(data[:,4])+1
+    joint_prob = zeros(n,m)
+    numData = size(data,1)
+    for i in 1:numData
+        joint_prob[data[i,2]+1, data[i,4]+1] = data[i,5]/numData
+    end
+    return joint_prob
+end
+
 
 
 end # module
