@@ -17,7 +17,7 @@ end
 
 
 # itcc with option to specify vectors of initial partions
-function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64, cX::Array{Int,2}, cY::Array{Int,2}) 
+function itcc(p::AbstractArray{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64, cX::Array{Int,2}, cY::Array{Int,2}) 
     m = size(p,1)
     n = size(p,2)
     
@@ -49,13 +49,14 @@ function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh:
     return ITCC_Result(cX, cY, q, prob_clust(p, 1:k,cX, 1:l,cY), kl_curr, converged, num_iters)
 end
 
+"""
 # If no cX, cY are specified, default to random assignments
 function itcc(p::Array{Float64,2}, k::Int, l::Int, n_iters::Int, convergeThresh::Float64)
     cX = rand(1:k, size(p,1))  
     cY = rand(1:l, size(p,2))
     itcc(p, k, l, n_iters, convergeThresh, cX, cY)
 end
-
+"""
 
 function readtsv(filepath)
     data = readdlm(filepath, '\t')
